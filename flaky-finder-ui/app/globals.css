@@ -1,0 +1,78 @@
+:root {
+  --bg: #f7f7f5;
+  --fg: #1c1c1a;
+  --muted: #6b6b66;
+  --card: #ffffff;
+  --line: #dcdcd6;
+  --accent: #1d4ed8;
+  --danger: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161615;
+    --fg: #ececea;
+    --muted: #9a9a94;
+    --card: #1f1f1e;
+    --line: #333331;
+    --accent: #60a5fa;
+    --danger: #f87171;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 40px 20px 80px; }
+h1 { margin: 0 0 4px; font-size: 26px; }
+.sub { margin: 0 0 24px; color: var(--muted); }
+
+.slots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+@media (max-width: 560px) { .slots { grid-template-columns: 1fr; } }
+
+.slot, .field { display: flex; flex-direction: column; gap: 6px; }
+.slot { padding: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+.slot-label, .field span { font-weight: 600; font-size: 13px; }
+.slot-meta { color: var(--muted); font-size: 13px; }
+.field { margin-bottom: 14px; }
+
+input[type="text"], input[type="password"] {
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--fg);
+  font: inherit;
+}
+
+button {
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.error { color: var(--danger); margin-top: 16px; }
+
+.result {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.result table { border-collapse: collapse; width: 100%; }
+.result th, .result td { border: 1px solid var(--line); padding: 6px 10px; text-align: left; }
+.result th { background: var(--bg); }

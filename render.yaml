@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: flaky-langflow
+    runtime: docker
+    plan: standard
+    dockerfilePath: ./deploy/langflow/Dockerfile
+    dockerContext: ./deploy/langflow
+    healthCheckPath: /health
+    envVars:
+      - key: LANGFLOW_AUTO_LOGIN
+        value: "false"
+      - key: LANGFLOW_SUPERUSER
+        value: admin
+      - key: LANGFLOW_SUPERUSER_PASSWORD
+        sync: false
+      - key: LANGFLOW_SECRET_KEY
+        generateValue: true
+      - key: LANGFLOW_CONFIG_DIR
+        value: /data
+    disk:
+      name: langflow-data
+      mountPath: /data
+      sizeGB: 1

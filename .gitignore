@@ -1,3 +1,6 @@
 # Secrets - never commit
 .claude/skills/.env
 *.env
+
+# Local Langflow virtualenv and logs
+langflow-qa/

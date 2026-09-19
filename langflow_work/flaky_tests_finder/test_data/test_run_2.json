@@ -1,0 +1,252 @@
+[
+  {
+    "test_case_id": "TC-001",
+    "title": "Login with valid credentials",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-002",
+    "title": "Login with invalid password",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-003",
+    "title": "Login with locked account",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-004",
+    "title": "Logout clears session",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-005",
+    "title": "Password reset email is sent",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-006",
+    "title": "Password reset link expires",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-007",
+    "title": "Register new user with valid data",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-008",
+    "title": "Register rejects duplicate email",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-009",
+    "title": "Register rejects weak password",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-010",
+    "title": "Profile page loads user details",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-011",
+    "title": "Update profile name",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-012",
+    "title": "Upload profile picture",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-013",
+    "title": "Search returns matching products",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-014",
+    "title": "Search with empty query",
+    "execution_result": "FAIL"
+  },
+  {
+    "test_case_id": "TC-015",
+    "title": "Search filters by category",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-016",
+    "title": "Search sorts by price ascending",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-017",
+    "title": "Product detail page loads",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-018",
+    "title": "Product image gallery navigation",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-019",
+    "title": "Add item to cart",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-020",
+    "title": "Remove item from cart",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-021",
+    "title": "Update cart quantity",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-022",
+    "title": "Cart total recalculates on change",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-023",
+    "title": "Apply valid coupon code",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-024",
+    "title": "Apply expired coupon code",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-025",
+    "title": "Checkout with saved address",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-026",
+    "title": "Checkout with new address",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-027",
+    "title": "Checkout with credit card",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-028",
+    "title": "Checkout with declined card",
+    "execution_result": "FAIL"
+  },
+  {
+    "test_case_id": "TC-029",
+    "title": "Order confirmation email is sent",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-030",
+    "title": "Order appears in order history",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-031",
+    "title": "Cancel an order before shipping",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-032",
+    "title": "Track order status",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-033",
+    "title": "Return request submission",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-034",
+    "title": "Wishlist add item",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-035",
+    "title": "Wishlist remove item",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-036",
+    "title": "Notification bell shows unread count",
+    "execution_result": "FAIL"
+  },
+  {
+    "test_case_id": "TC-037",
+    "title": "Mark notification as read",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-038",
+    "title": "API returns 401 without token",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-039",
+    "title": "API returns 200 for health check",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-040",
+    "title": "API rate limit returns 429",
+    "execution_result": "FAIL"
+  },
+  {
+    "test_case_id": "TC-041",
+    "title": "API pagination returns correct page size",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-042",
+    "title": "Export orders to CSV",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-043",
+    "title": "Admin can view all users",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-044",
+    "title": "Admin can disable a user",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-045",
+    "title": "Language switch to Spanish",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-046",
+    "title": "Dark mode toggle persists",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-047",
+    "title": "Session times out after inactivity",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-048",
+    "title": "Page loads under 3 seconds",
+    "execution_result": "FAIL"
+  },
+  {
+    "test_case_id": "TC-049",
+    "title": "Responsive layout on mobile viewport",
+    "execution_result": "PASS"
+  },
+  {
+    "test_case_id": "TC-050",
+    "title": "Footer links navigate correctly",
+    "execution_result": "PASS"
+  }
+]
