@@ -4,3 +4,18 @@
 
 # Local Langflow virtualenv and logs
 langflow-qa/
+# Never commit credentials
+.env
+.env.*
+*.token
+secrets/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

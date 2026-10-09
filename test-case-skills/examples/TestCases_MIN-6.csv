@@ -1,0 +1,101 @@
+Title,Type,Preconditions,Steps,Expected Result
+"MIN-6: All core authentication paths work on web and mobile","Happy Path","A test account exists; the web app and the mobile app are installed","1. On the web app, complete sign-up, login, logout and password reset
+2. Repeat the same four flows on the mobile app","Each of the four flows completes successfully on both web and mobile"
+"MIN-6: Passwords are stored encrypted with bcrypt","Security","Database read access to a test environment; a test account was just created","1. Create an account with the password 'Test@1234'
+2. Read the stored password value for that account in the database","The stored value is a bcrypt hash (starts with $2a$, $2b$ or $2y$), not the plain password"
+"MIN-6: Session token is a valid JWT","Security","A registered user exists","1. Log in and capture the session token
+2. Decode the token header and payload","The token is a signed JWT with an expiry claim and a user identifier, and it carries no password or secret data"
+"MIN-6: Tampered or expired JWT is rejected","Security","A valid JWT has been captured after login","1. Change one character in the token payload and call a protected API
+2. Call the same API with an expired token","Both requests are rejected with an unauthorized response and no user data is returned"
+"MIN-6: Profile changes sync between database and frontend","Happy Path","User is logged in on two browsers","1. In browser 1 edit the display name and save
+2. Check the stored profile record in the database
+3. Reload the profile page in browser 2","The new name is saved in the database and shows in both browsers"
+"MIN-6: Failed profile save leaves data consistent","Negative","User is logged in; the profile save call can be made to fail (for example by blocking it in dev tools)","1. Edit the display name
+2. Block the save request and click Save
+3. Reload the page","An error message is shown, and the database and the frontend still show the old name"
+"MIN-6: Authentication pages adapt to web and mobile screen sizes","UI","Sign-up, login and reset pages are reachable","1. Open each page at 1440 px width
+2. Open each page at 375 px width","Content fits the width, there is no horizontal scroll, and all fields and buttons are usable at both sizes"
+"MIN-7: Sign up with a unique email and a strong password","Happy Path","The email test1@example.com is not registered; the sign-up page is open","1. Enter test1@example.com
+2. Enter the password 'Secure@123'
+3. Click Submit","The account is created and a verification email is sent to test1@example.com"
+"MIN-7: Password of exactly 8 characters is accepted","Happy Path","The sign-up page is open; the email test2@example.com is not registered","1. Enter test2@example.com
+2. Enter the 8-character password 'abcdef1!'
+3. Click Submit","The account is created, because 8 characters with 1 number and 1 special character meets the rule"
+"MIN-7: Duplicate email is rejected with the stated message","Negative","An account exists for test1@example.com","1. Enter test1@example.com
+2. Enter the password 'Secure@123'
+3. Click Submit","The message 'Email already registered.' is shown and no second account is created"
+"MIN-7: Password shorter than 8 characters is rejected","Negative","The sign-up page is open","1. Enter an unused email
+2. Enter the 7-character password 'abcde1!'
+3. Click Submit","The password is rejected with a message about the rules and no account is created"
+"MIN-7: Password without a number is rejected","Negative","The sign-up page is open","1. Enter an unused email
+2. Enter the password 'Password!'
+3. Click Submit","The password is rejected with a message about the rules and no account is created"
+"MIN-7: Password without a special character is rejected","Negative","The sign-up page is open","1. Enter an unused email
+2. Enter the password 'Password1'
+3. Click Submit","The password is rejected with a message about the rules and no account is created"
+"MIN-7: Invalid email format is rejected","Negative","The sign-up page is open","1. Enter 'user@@example' as the email
+2. Enter a strong password
+3. Click Submit","A validation error is shown on the email field and no account is created"
+"MIN-7: Submit with empty fields","Negative","The sign-up page is open","1. Leave the email and password empty
+2. Click Submit","Required-field messages are shown and no account is created"
+"MIN-7: Duplicate-email message is clearly visible","UI","An account exists for test1@example.com","1. Submit the sign-up form with test1@example.com
+2. Look at where the message appears","'Email already registered.' appears next to the form, is readable, and is not hidden by other content"
+"MIN-7: Password is never exposed in the request URL or response","Security","Browser developer tools network tab is open","1. Submit a valid sign-up form
+2. Inspect the request URL, request body and response","The password is sent only in the request body over HTTPS and is not in the URL or echoed in the response"
+"MIN-7: Sign-up fields reject script injection","Security","The sign-up page is open","1. Enter <script>alert(1)</script> in the email field
+2. Submit the form","The input is rejected or escaped, no script runs, and nothing unsafe is stored"
+"MIN-7: Registration endpoint creates an account","API","The registration endpoint is reachable; the email is unused","1. Send a registration request with a unique email and a strong password
+2. Read the response","The API returns a success status and the account exists"
+"MIN-7: Registration endpoint rejects a duplicate email","API","An account exists for test1@example.com","1. Send a registration request with test1@example.com","The API returns an error status and the body contains the message 'Email already registered.'"
+"MIN-8: Login with valid credentials","Happy Path","A registered user exists","1. Open the login page
+2. Enter the valid email and password
+3. Click Login","The user is redirected to the main dashboard and a secure JWT session is started"
+"MIN-8: Logout destroys the session","Happy Path","User is logged in and on the dashboard","1. Click Logout
+2. Observe the page","The session token is destroyed and the user is redirected to the public landing page"
+"MIN-8: Wrong password shows the stated message and keeps the inputs","Negative","A registered user exists","1. Enter the valid email
+2. Enter a wrong password
+3. Click Login","The message 'Invalid username or password' is shown and the entered values stay in the fields"
+"MIN-8: Unknown user shows the same message","Negative","The login page is open","1. Enter an email that is not registered
+2. Enter any password
+3. Click Login","The message 'Invalid username or password' is shown, the same as for a wrong password"
+"MIN-8: Login with empty fields","Negative","The login page is open","1. Leave both fields empty
+2. Click Login","A required-field message is shown and no session is created"
+"MIN-8: Old token is rejected after logout","Security","User is logged in; the JWT has been captured","1. Click Logout
+2. Call a protected API with the captured token","The API rejects the request as unauthorized"
+"MIN-8: Back button after logout does not show the dashboard","Security","User is logged in and on the dashboard","1. Click Logout
+2. Click the browser Back button","The dashboard content is not shown; the user stays on the landing page or the login page"
+"MIN-8: Dashboard cannot be opened without logging in","Security","No active session","1. Open the dashboard URL directly","The user is redirected to the login page and no dashboard data is shown"
+"MIN-8: Login resists SQL injection","Security","The login page is open","1. Enter ""' OR '1'='1"" as the email
+2. Enter any password
+3. Click Login","Login fails with 'Invalid username or password' and no session is created"
+"MIN-8: Session token is stored and sent securely","Security","User is logged in; browser developer tools are open","1. Inspect where the token is stored
+2. Inspect how it is sent with requests","The token is sent only over HTTPS and is not readable by page scripts (for example an HttpOnly cookie), as the team's standard requires"
+"MIN-8: Login endpoint returns a token for valid credentials","API","A registered user exists","1. Send a login request with valid credentials
+2. Read the response","The API returns a success status and a JWT"
+"MIN-8: Login endpoint rejects invalid credentials","API","A registered user exists","1. Send a login request with a wrong password","The API returns an unauthorized status and no token"
+"MIN-9: Reset email is sent for a registered address","Happy Path","A registered user exists; the reset page is open","1. Enter the registered email
+2. Submit the request
+3. Open the inbox","An email with a reset link arrives"
+"MIN-9: Set a new password with a valid link","Happy Path","A reset email was received less than 15 minutes ago","1. Click the link in the email
+2. Enter a new strong password
+3. Submit
+4. Log in with the new password","The password is changed and login with the new password succeeds"
+"MIN-9: Link works just before 15 minutes","Happy Path","A reset email was received 14 minutes ago","1. Click the link in the email","The reset form opens normally"
+"MIN-9: Expired link shows the stated message and a button","Negative","A reset email was received more than 15 minutes ago","1. Click the link in the email","The message 'Link has expired' is shown with a button to request a new link"
+"MIN-9: Request a new link from the expired page","Happy Path","The expired-link page is shown","1. Click the button to request a new link
+2. Open the inbox
+3. Click the new link","A new email arrives and its link opens the reset form"
+"MIN-9: Link can be used only once","Negative","A reset link was already used to change the password","1. Click the same link again","The link is rejected and the password cannot be reset with it"
+"MIN-9: Invalid email format on the reset page","Negative","The reset page is open","1. Enter 'user@@example'
+2. Submit the request","A validation error is shown and no email is sent"
+"MIN-9: Reset request for an unregistered email","Negative","The reset page is open; the email is not registered","1. Enter an email that is not registered
+2. Submit the request","No reset email is sent and the page does not reveal whether the email exists (assumed; the ticket does not say)"
+"MIN-9: Weak new password is rejected","Negative","A valid reset link is open","1. Enter the new password 'abc'
+2. Submit","The password is rejected with a message about the rules (assumed to match the sign-up rules)"
+"MIN-9: Reset links are unique and unpredictable","Security","A registered user exists","1. Request two reset links for the same account
+2. Compare the two tokens","The tokens are different and show no sequence or pattern"
+"MIN-9: Tampered reset token is rejected","Security","A valid reset link is available","1. Change one character in the token part of the link
+2. Open the link","The link is rejected and no password change is possible"
+"MIN-9: Expired-link page is clear and usable","UI","The expired-link page is shown","1. Look at the page
+2. Tab to the new-link button and press Enter","The message is readable, the button is visible and reachable by keyboard, and it starts a new request"
+"MIN-9: Token validation rejects an expired token","API","An expired reset token exists","1. Send the expired token to the reset-token validation endpoint","The API returns an error status that identifies the token as expired"

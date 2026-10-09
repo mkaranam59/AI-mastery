@@ -1,0 +1,99 @@
+Title,Type,Preconditions,Steps,Expected Result
+"REQ-001: Register with a valid email","Happy Path","User is not registered; registration page is open","1. Enter a valid, unused email address
+2. Enter a password that meets the password policy
+3. Submit the registration form","Account is created, a success message is shown, and the user can sign in with the new credentials"
+"REQ-001: Reject a malformed email","Negative","Registration page is open","1. Enter 'user@@example' in the email field
+2. Enter a valid password
+3. Submit the form","A validation error is shown on the email field and no account is created"
+"REQ-001: Reject an already registered email","Negative","An account exists for test@example.com","1. Enter test@example.com in the email field
+2. Enter a valid password
+3. Submit the form","Registration is rejected with a clear message and no duplicate account is created"
+"REQ-001: Reject a password that breaks the policy","Negative","Registration page is open","1. Enter a valid unused email
+2. Enter a password shorter than the minimum length
+3. Submit the form","A validation error describes the password rule and no account is created"
+"REQ-001: Registration fields reject script injection","Security","Registration page is open","1. Enter <script>alert(1)</script> in each text field
+2. Submit the form","Input is rejected or escaped, no script runs, and nothing unsafe is stored or echoed back"
+"REQ-001: Registration validation messages are visible and labelled","UI","Registration page is open","1. Submit the form with every field empty
+2. Review the error messages","Each error appears next to its field, is readable, and names the field and the problem"
+"REQ-002: Sign in with Google","Happy Path","User has a Google account; login page is open","1. Click 'Sign in with Google'
+2. Choose the Google account and grant consent","User is redirected back and signed in; the profile shows the Google account email"
+"REQ-002: Sign in with Apple ID","Happy Path","User has an Apple ID; login page is open","1. Click 'Sign in with Apple'
+2. Authenticate with the Apple ID and grant consent","User is redirected back and signed in; a profile exists for the Apple identity"
+"REQ-002: Cancel consent on the OAuth screen","Negative","Login page is open","1. Click 'Sign in with Google'
+2. Click Cancel on the consent screen","User returns to the login page with a message and no session is created"
+"REQ-002: Reject an OAuth callback with a tampered state value","Security","OAuth sign-in is started and the callback URL is captured","1. Change the 'state' parameter in the callback URL
+2. Open the modified URL","The callback is rejected, no session is created, and the failure is logged"
+"REQ-003: Order history lists past orders in sequence","Happy Path","User is signed in and has at least 3 completed orders","1. Open the profile page
+2. Open the order history section","All orders are listed in a consistent date order, each with date, items and total"
+"REQ-003: Order history for a user with no orders","Negative","User is signed in and has no orders","1. Open the profile page
+2. Open the order history section","An empty-state message is shown and there is no error"
+"REQ-003: A user cannot view another user's order history","Security","Users A and B are signed in on separate sessions; user B has orders","1. As user A, request the order history URL or ID that belongs to user B","Access is denied (403 or 404) and no data about user B is returned"
+"REQ-004: Product page shows image and localized price","Happy Path","A product with an image and a price exists","1. Open the product page
+2. Check the image and the price","A high-quality image loads and the price uses the correct currency symbol and format for the locale"
+"REQ-004: Price format follows the selected locale","UI","Store supports at least two locales","1. Open a product page in locale A
+2. Switch to locale B
+3. Compare the price display","Currency symbol, separators and position change to match locale B"
+"REQ-004: Product without an image shows a placeholder","Negative","A product exists with no image asset","1. Open the catalog listing
+2. Open the product page","A placeholder image is shown and the layout does not break"
+"REQ-005: Filter by category and rating","Happy Path","Catalog has products in several categories and ratings","1. Open the catalog
+2. Select one category
+3. Select a minimum rating","Only products matching both filters are listed and the result count updates"
+"REQ-005: Filters that match nothing","Negative","Catalog is loaded","1. Select a category and a rating combination with no products","A 'no results' message is shown with an option to clear filters"
+"REQ-006: Typeahead suggests products while typing","Happy Path","Catalog contains products starting with 'sho'","1. Click the search box
+2. Type 'sho' slowly","A suggestion list appears without a page reload and updates as characters are typed"
+"REQ-006: Suggestion endpoint returns matches","API","The suggestion endpoint is reachable","1. Send a GET request to the suggestion endpoint with the partial query 'sho'
+2. Read the response","Status is 200 and the body is a list of suggestions that match the query"
+"REQ-006: Typeahead with an empty or special-character query","Negative","Catalog is loaded","1. Focus the search box and type only spaces
+2. Clear it and type '%$#&'","No error is shown, no broken suggestion list appears, and the page stays usable"
+"REQ-006: Search input is protected against injection","Security","Catalog is loaded","1. Type <script>alert(1)</script> in the search box
+2. Type ' OR 1=1 -- in the search box","Input is escaped, no script runs, and the results are not altered by the injected text"
+"REQ-007: Quantity change updates totals without a refresh","Happy Path","Cart contains one item","1. Change the item quantity from 1 to 3
+2. Watch the line total and the cart total","Line total and cart total update immediately and the page does not reload"
+"REQ-007: Reject a negative quantity","Negative","Cart contains one item","1. Enter -2 as the quantity
+2. Confirm the change","The value is rejected with a message and the previous quantity and totals remain"
+"REQ-007: Quantity above available stock","Negative","A product has 5 units in stock; it is in the cart","1. Set the quantity to 6","A stock message is shown and the quantity is limited to 5 or rejected"
+"REQ-008: Flat tax and shipping are calculated automatically","Happy Path","Cart contains items; shipping address is in a supported region","1. Enter the shipping address
+2. Choose a shipping method
+3. Review the order summary","Tax is a flat rate for the region, shipping is added, and the total equals subtotal + tax + shipping"
+"REQ-008: Address outside the supported region","Negative","Cart contains items","1. Enter a shipping address in an unsupported country
+2. Continue to the next checkout step","A clear 'delivery not available' message is shown and checkout does not continue"
+"REQ-009: Guest completes checkout without an account","Happy Path","User is not signed in; cart contains items","1. Start checkout as a guest
+2. Enter contact and shipping details
+3. Enter payment details and place the order","Order is placed, a confirmation with an order number is shown, and no account is required"
+"REQ-009: Guest checkout with missing required fields","Negative","User is not signed in; cart contains items","1. Start checkout as a guest
+2. Leave required fields empty
+3. Try to continue","Each missing field is highlighted with a message and the order is not placed"
+"REQ-010: Pay by card using Stripe","Happy Path","Cart contains items; Stripe test mode is on","1. Enter the test card 4242 4242 4242 4242 with a future expiry and any CVC
+2. Place the order","Payment succeeds, the order is confirmed, and the payment is recorded as paid"
+"REQ-010: Card number is never sent to the merchant server","Security","Browser developer tools network tab is open","1. Enter card details and place the order
+2. Inspect the requests sent to the merchant server","Only a Stripe token is sent to the merchant server; the card number and CVC are absent"
+"REQ-010: Create a payment with a valid token","API","A valid Stripe token has been created","1. Send the token to the merchant's payment endpoint with the order id
+2. Read the response","Status is 200, the response contains the payment status, and the order is marked paid"
+"REQ-010: Declined card","Negative","Stripe test mode is on","1. Enter the test card 4000 0000 0000 0002
+2. Place the order","A decline message is shown, no order is confirmed, and the user can try another card"
+"REQ-010: Reuse of a payment token is rejected","Negative","A payment token has already been used for a successful payment","1. Send the same token to the payment endpoint again","The request is rejected, no second charge is created, and the error is logged"
+"REQ-010: Pay with PayPal","Happy Path","Cart contains items; PayPal sandbox account is available","1. Choose PayPal at checkout
+2. Sign in to the sandbox account and approve the payment","User returns to the store, the order is confirmed, and the payment is recorded"
+"REQ-010: Cancel the PayPal payment","Negative","Cart contains items; PayPal sandbox account is available","1. Choose PayPal at checkout
+2. Click Cancel on the PayPal page","User returns to checkout with the cart intact and no order or charge is created"
+"REQ-011: Site accepts TLS 1.3 connections","Security","A TLS testing tool is available","1. Connect to the site using TLS 1.3
+2. Check the negotiated protocol","The handshake succeeds with TLS 1.3 and the certificate is valid"
+"REQ-011: Older TLS versions are refused","Security","A TLS testing tool is available","1. Try to connect using TLS 1.0 and TLS 1.1","Both connections are refused"
+"REQ-011: Plain HTTP requests are redirected to HTTPS","Security","The site is reachable over HTTP","1. Open the http:// address of the login page","The browser is redirected to the https:// address and no content is served over HTTP"
+"NFR-001: Key pages respond within 2.0 seconds","Performance","Standard broadband network profile is set in the test tool","1. Load the home, catalog, product and cart pages 20 times each
+2. Record the time to the key interaction frame","The 95th percentile for every page is 2.0 seconds or less"
+"NFR-001: Checkout steps respond within 2.0 seconds","Performance","Cart contains items; standard broadband profile is set","1. Move through each checkout step
+2. Record the response time of each step","Each step responds within 2.0 seconds"
+"NFR-002: System handles 10,000 simultaneous sessions","Performance","A load-test environment matches production","1. Ramp up to 10,000 virtual users browsing and adding to cart
+2. Hold the load for 30 minutes
+3. Record error rate and response times","No crashes, error rate stays under the agreed limit, and NFR-001 response times still hold"
+"NFR-002: Behaviour beyond 10,000 sessions","Performance","A load-test environment matches production","1. Ramp up to 12,000 virtual users
+2. Observe errors and recovery after the load is removed","The system degrades gracefully, does not lose orders, and recovers without a manual restart"
+"NFR-003: All checkout controls work by keyboard only","UI","Checkout page is open; mouse is not used","1. Press Tab to move through every control
+2. Use Enter or Space to activate each one
+3. Complete checkout","Every control is reachable, the focus indicator is visible, and checkout completes without a mouse"
+"NFR-003: Text colour contrast meets WCAG 2.1 AA","UI","Home, product and checkout pages are open","1. Run a contrast checker on text and controls on each page","Normal text has a ratio of at least 4.5:1 and large text at least 3:1"
+"NFR-003: Form fields have labels for screen readers","UI","A screen reader is running; registration and checkout forms are open","1. Move through each form field with the screen reader","Each field is announced with its label, required state and any error message"
+"NFR-004: Layout adapts on a mobile width","UI","Browser window is set to 375 px wide","1. Open home, catalog, product, cart and checkout pages","Content fits the width, nothing is cut off, there is no horizontal scroll, and controls are tappable"
+"NFR-004: Layout adapts on tablet and desktop widths","UI","Browser window is set to 768 px, then 1440 px","1. Open home, catalog and product pages at each width","The layout uses the available space and keeps a consistent structure"
+"NFR-004: Resizing the window keeps the page usable","UI","Any page is open on a desktop browser","1. Drag the window width from 1440 px down to 320 px and back","The layout changes smoothly at each breakpoint and no content overlaps or disappears"
