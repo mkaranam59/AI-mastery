@@ -4,7 +4,7 @@ description: >-
   Test tool-using AI agents: task success, tool selection and arguments, multi-step planning, error recovery, guardrails, permission boundaries, loops, cost and determinism. Use when a tester says "test an AI agent", "agent evaluation", "MCP tool testing", or an agent calls tools autonomously.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: AI Testing
   version: 1.0.0
 ---

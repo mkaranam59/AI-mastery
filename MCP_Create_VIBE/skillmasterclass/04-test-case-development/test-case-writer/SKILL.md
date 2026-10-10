@@ -8,7 +8,7 @@ description: >-
   and acceptance criterion, then stops for review before the cases are treated as final.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   stlc-phase: Test Case Development
   version: 1.0.0
 ---

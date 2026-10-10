@@ -4,7 +4,7 @@ description: >-
   Define and compute QA metrics and dashboards: pass rate, coverage, automation rate, defect density, escape rate, flakiness, cycle time and trends, with definitions that cannot be gamed. Use when a lead says "QA dashboard", "quality metrics", "KPIs for testing", or needs reporting design.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Closure
   version: 1.0.0
 ---

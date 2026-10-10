@@ -4,7 +4,7 @@ description: >-
   Integrate automated tests into CI/CD pipelines: stages, parallelization, environments, secrets, artifacts, reports, quality gates and failure triage on GitHub Actions, GitLab CI, Jenkins or Azure DevOps. Use when a tester says "run tests in the pipeline", "CI/CD for automation", "quality gate", or "parallelize tests".
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Execution
   version: 1.0.0
 ---

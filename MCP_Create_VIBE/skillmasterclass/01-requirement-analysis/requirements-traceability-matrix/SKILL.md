@@ -4,7 +4,7 @@ description: >-
   Build and maintain a requirements traceability matrix (RTM) linking requirements, acceptance criteria, scenarios, test cases, automation and defects. Use when a tester says "create an RTM", "trace requirements to tests", "which requirements have no tests", or before sign-off needs proof of coverage. Produces a matrix plus a gap list, then stops for review.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Requirement Analysis
   version: 1.0.0
 ---

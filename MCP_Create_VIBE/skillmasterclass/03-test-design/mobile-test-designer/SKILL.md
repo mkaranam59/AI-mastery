@@ -4,7 +4,7 @@ description: >-
   Design mobile application tests for iOS and Android: installation, permissions, gestures, orientation, interruptions, connectivity, device and OS coverage, and store requirements, with Appium or native tooling. Use when a tester says "mobile testing", "app test cases", "device matrix", or an app release is planned.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

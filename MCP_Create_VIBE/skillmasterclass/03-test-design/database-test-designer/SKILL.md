@@ -4,7 +4,7 @@ description: >-
   Design database and SQL validation tests: schema, constraints, migrations, data integrity, stored procedures, transactions, ETL reconciliation and query correctness. Use when a tester says "database testing", "validate this SQL", "check data after migration", or "reconcile source and target".
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

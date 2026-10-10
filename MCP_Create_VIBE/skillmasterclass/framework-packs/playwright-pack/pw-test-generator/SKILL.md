@@ -8,7 +8,7 @@ description: >-
   role/testid locators and web-first assertions — the engineer still runs it.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   pack: playwright
   version: 1.0.0
 ---

@@ -4,7 +4,7 @@ description: >-
   Design accessibility tests against WCAG 2.2: keyboard operation, screen-reader semantics, contrast, focus management, forms, media and responsive behavior, using axe and manual checks. Use when a tester says "accessibility testing", "WCAG", "a11y", "screen reader", or a UI release needs compliance evidence.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

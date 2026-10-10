@@ -4,7 +4,7 @@ description: >-
   Prioritize testing by risk: identify product and project risks, score likelihood and impact, and allocate test depth accordingly. Use when a tester says "risk-based testing", "what should we test first", "we have limited time", or needs to justify skipped coverage. Produces a risk register and a test-depth allocation, then stops for review.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Planning
   version: 1.0.0
 ---

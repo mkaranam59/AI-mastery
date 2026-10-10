@@ -8,7 +8,7 @@ description: >-
   getByRole), action methods, and a static PATH — a draft to review.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   pack: playwright
   version: 1.0.0
 ---

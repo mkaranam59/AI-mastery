@@ -4,7 +4,7 @@ description: >-
   Design performance tests: load, stress, spike, soak and scalability scenarios with workload models, SLAs, metrics and tooling (k6, JMeter, Gatling, Locust). Use when a tester says "performance testing", "load test plan", "how many users can it handle", or needs response-time targets verified.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

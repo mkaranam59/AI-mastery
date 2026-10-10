@@ -4,7 +4,7 @@ description: >-
   Define smoke and sanity suites: a minimal build-verification set and a focused change-verification set, with criteria for when each runs and what failure means. Use when a tester says "smoke test suite", "sanity checks", "build verification", or "what must pass before we test further".
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Execution
   version: 1.0.0
 ---

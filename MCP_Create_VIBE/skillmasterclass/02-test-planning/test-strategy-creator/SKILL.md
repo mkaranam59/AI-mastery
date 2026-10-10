@@ -4,7 +4,7 @@ description: >-
   Create an organization- or product-level test strategy: test levels, types, tooling, environments, automation approach, entry/exit criteria and quality goals. Use when a lead says "write a test strategy", "define our testing approach", or a new product needs a testing blueprint above any single release plan. Stops for human review.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Planning
   version: 1.0.0
 ---

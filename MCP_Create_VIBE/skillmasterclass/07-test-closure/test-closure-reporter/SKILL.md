@@ -9,7 +9,7 @@ description: >-
   invented ones.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   stlc-phase: Test Closure
   version: 1.0.0
 ---

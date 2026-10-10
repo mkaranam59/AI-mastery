@@ -8,7 +8,7 @@ description: >-
   gaps / ambiguities / risks report plus clarifying questions to send back to the author.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   stlc-phase: Requirement Analysis
   version: 1.0.0
 ---

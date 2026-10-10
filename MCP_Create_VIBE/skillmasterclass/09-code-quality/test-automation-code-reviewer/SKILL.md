@@ -4,7 +4,7 @@ description: >-
   Review test automation code: locator strategy, waits, independence, assertions, page-object design, data handling, readability, duplication, flakiness and reporting, for any framework. Use when a tester says "review my automation code", "why is this flaky", "code review of tests", or before merging test code.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Code Quality
   version: 1.0.0
 ---

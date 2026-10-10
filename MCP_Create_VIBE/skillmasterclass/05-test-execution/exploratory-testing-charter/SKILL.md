@@ -4,7 +4,7 @@ description: >-
   Plan and structure exploratory testing: write time-boxed session charters, heuristics, notes and debriefs. Use when a tester says "exploratory testing", "session-based testing", "charter", or wants to look for unknown issues beyond scripted cases.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Execution
   version: 1.0.0
 ---

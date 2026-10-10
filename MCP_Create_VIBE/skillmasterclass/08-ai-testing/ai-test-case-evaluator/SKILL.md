@@ -4,7 +4,7 @@ description: >-
   Review test cases written by an AI for correctness and usefulness: traceability, hallucinated features, duplicate or vague steps, missing negative and boundary coverage, and testability. Use when a tester says "review these generated test cases", "are these AI test cases good", or before accepting generated cases into a suite.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: AI Testing
   version: 1.0.0
 ---

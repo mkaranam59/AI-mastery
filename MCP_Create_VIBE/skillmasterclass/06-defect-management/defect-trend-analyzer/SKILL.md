@@ -4,7 +4,7 @@ description: >-
   Analyze defect data over time: arrival and closure rates, severity mix, aging, escape rate, hot spots by module or cause, and trends across releases. Use when a lead says "defect trends", "where are the bugs", "defect leakage", or a retrospective needs evidence.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Defect Management
   version: 1.0.0
 ---

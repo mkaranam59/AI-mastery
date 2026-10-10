@@ -4,7 +4,7 @@ description: >-
   Design evaluations for LLM prompts and applications: golden datasets, rubrics, LLM-as-judge, regression comparisons, safety and robustness checks, and metrics. Use when a tester says "evaluate this prompt", "LLM testing", "prompt regression", "hallucination checks", or compares prompt or model versions.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: AI Testing
   version: 1.0.0
 ---

@@ -8,7 +8,7 @@ description: >-
   Produces listener and config code the engineer must run to generate a report.
 license: MIT
 metadata:
-  author: TheTestingAcademy
+  author: Muralidhar Karanam
   pack: selenium
   version: 1.0.0
 ---

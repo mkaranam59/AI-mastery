@@ -4,7 +4,7 @@ description: >-
   Design application security tests aligned to OWASP: authentication, authorization, injection, session management, input validation, sensitive data exposure and API security. Use when a tester says "security testing", "OWASP test cases", "check authorization", or a feature handles credentials or personal data. Only for systems the user is authorised to test.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

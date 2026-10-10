@@ -4,7 +4,7 @@ description: >-
   Estimate testing effort and schedule from scope: test design, execution, regression, automation, defect retesting and contingency. Use when a lead says "estimate testing effort", "how long will QA take", or planning needs numbers with stated assumptions. Gives a range, not a single false-precision figure, then stops for review.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Planning
   version: 1.0.0
 ---

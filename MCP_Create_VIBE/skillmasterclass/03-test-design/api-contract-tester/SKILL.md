@@ -4,7 +4,7 @@ description: >-
   Design contract tests for REST APIs from OpenAPI/Swagger specs or consumer expectations: schema, status codes, headers, required fields, backward compatibility and versioning. Use when a tester says "contract testing", "validate the API against the spec", "did this change break consumers", or Pact is mentioned.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Design
   version: 1.0.0
 ---

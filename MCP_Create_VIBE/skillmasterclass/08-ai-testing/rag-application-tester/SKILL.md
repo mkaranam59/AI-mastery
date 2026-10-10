@@ -4,7 +4,7 @@ description: >-
   Test retrieval-augmented generation systems: retrieval quality, chunking, grounding and citation accuracy, hallucination, freshness, access control and end-to-end answer quality. Use when a tester says "test RAG", "retrieval testing", "is the answer grounded", or a chatbot answers from documents.
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: AI Testing
   version: 1.0.0
 ---

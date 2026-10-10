@@ -4,7 +4,7 @@ description: >-
   Assess whether a release is ready: exit criteria, coverage, open defects by severity, test results, risks, non-functional status and a go/no-go recommendation with conditions. Use when a lead says "are we ready to release", "go/no-go", "release sign-off", or "readiness report".
 license: MIT
 metadata:
-  author: skillmasterclass-local
+  author: Muralidhar Karanam
   stlc-phase: Test Closure
   version: 1.0.0
 ---
